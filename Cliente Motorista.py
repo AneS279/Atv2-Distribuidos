@@ -26,14 +26,17 @@ def cadastro ():
     nome = input("Qual seu nome? ").strip()
     telefone = input("Certo! \n Qual seu telefone? ").strip()
     senha = input("Insira uma senha: ").strip()
-    key = RSA.generate(2048)
+    key = rsa.key()
     f = open('mykey.pem', 'wb')
     (public_key, private_key) = rsa.newkeys(1024, accurate=True, poolsize=8)
 
     if nome and telefone:
-        servidor.cadastroUsuario(nome, telefone, publicKey, 1)
+        servidor.cadastroUsuario(nome, telefone, public_key, 1) #O ultimo campo - se 1 motorista, se 0 passageiro
         print(servidor.amostraALista())
-
+#TODO
+    #Registro de interesse em eventos (1,1)
+    #Cancelamento de um registro de inte    resse (0,4)
+    #Cada cliente tem um método para o recebimento de notificações de eventos do servidor (0,4)
 
 escolha = ''
 while escolha != 0:
