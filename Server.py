@@ -13,8 +13,8 @@ class Servidor(object):
         self.procuraPassageiro = []
         self.procuraMotorista = []
 #########################################
-    def amostraALista(self):
-        return self.Motorista
+        def amostraALista(self):
+            return self.Motorista
 #########################################
 
     # Clientes devem informar a origem, destino e a data da viagem desejada. (0,3)
@@ -38,6 +38,7 @@ class Servidor(object):
         for viagens in self.procuraMotorista:
             if viagens[data] == data:
                 print("Hey, aqui estou")
+
     # Clientes devem informar seu nome, telefone e chave pública. (0,2)
     def cadastroUsuario(self, nome, telefone, publicKey, idUser):
         if (idUser == 1):

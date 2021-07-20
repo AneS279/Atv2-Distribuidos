@@ -14,10 +14,12 @@ from Crypto.Cipher import PKCS1_OAEP
 sys.excepthook = Pyro4.util.excepthook
 
 servidor = Pyro4.Proxy("PYRONAME:servidor.carona")
+
 key = RSA.generate(2048)
+
 privatekey = key.export_key()
 publickey = key.publickey().export_key()
-encryptor = PKCS1_OAEP.new(publickey)
+
 def consulta():
     destino = input("Para onde deseja ir? ").strip()
     origem = input("Aonde está? ").strip()
@@ -27,7 +29,8 @@ def consulta():
 
     if origem and destino and data:
         if interesse != '0':
-
+            hashA = SHA256.new(True_text.encode('utf - 8')).digest()
+            digitalSign = keyPair.sign(hashA, '')
             id = servidor.consultaMotorista(origem, destino, data, interesse)
             print(id)
 
@@ -36,10 +39,11 @@ def consulta():
 
 def cadastro ():
     print("Novo por aqui? Cadastre-se\n")
-    nome = input("Qual seu nome? ").strip()
-    telefone = input("Certo! \n Qual seu telefone? ").strip()
-    nome = encryptor.encrypt(nome.encode('utf-8'))
-    telefone = encryptor.encrypt(telefone.encode('utf-8'))
+    nome = input("Qual seu nome? ").strip().encode()
+    telefone = input("Certo! \n Qual seu telefone?").strip().encode()
+    encryptor = PKCS1_OAEP.new(key)
+    nome = encryptor.encrypt(nome)
+    telefone = encryptor.encrypt(telefone)
     if nome and telefone:
         servidor.cadastroUsuario(nome, telefone, publickey, 1) #O ultimo campo - se 1 motorista, se 0 passageiro
 
