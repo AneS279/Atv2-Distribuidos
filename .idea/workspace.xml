@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Validação por assinatura digital funcionando!!!!!!!!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
     <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
@@ -145,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626812587081</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Validação por assinatura digital funcionando!!!!!!!!!!!">
+      <created>1626816976120</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626816976120</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

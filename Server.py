@@ -34,7 +34,7 @@ class Servidor(object):
                 h = SHA256.new(encoded.encode())
                 publicKey = motorista[3]
                 try:
-                    pkcs1_15.new(publicKey).verify(h, signature)
+                    pkcs1_15.new(publicKey).verify(h, '')
                     self.procuraPassageiro.append(idCorrida,idUser, origem, destino, data, signature)
                     return idCorrida
                 except (ValueError, TypeError):

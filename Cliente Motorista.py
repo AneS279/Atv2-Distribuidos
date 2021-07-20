@@ -17,9 +17,15 @@ sys.excepthook = Pyro4.util.excepthook
 servidor = Pyro4.Proxy("PYRONAME:servidor.carona")
 
 key = RSA.generate(2048)
+privatekey = key.export_key()
+file_out = open("private.pem", "wb")
+file_out.write(privatekey)
+file_out.close()
 
-privatekey = key.exportKey(pkcs=8)
 publickey = key.publickey().export_key()
+file_out = open("receiver.pem", "wb")
+file_out.write(publickey)
+file_out.close()
 
 def consulta(idUser):
     if(not(idUser)):
@@ -39,7 +45,7 @@ def consulta(idUser):
 def interesse(data, origem, idUser, destino):
     encoded = str(idUser)
     h = SHA256.new(encoded.encode())
-    signature = pkcs1_15.new(key).sign(h)
+    signature = pkcs1_15.new(privatekey).sign(h)
     id = servidor.interesseMotorista(idUser, origem, destino, data, signature)
     print(id)
 
