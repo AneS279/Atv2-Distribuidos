@@ -45,7 +45,7 @@ def consulta(idUser):
 def interesse(data, origem, idUser, destino):
     encoded = str(idUser)
     h = SHA256.new(encoded.encode())
-    signature = pkcs1_15.new(privatekey).sign(h)
+    signature = pkcs1_15.new(key).sign(h)
     id = servidor.interesseMotorista(idUser, origem, destino, data, signature)
     print(id)
 

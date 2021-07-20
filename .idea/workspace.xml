@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Validação por assinatura digital funcionando!!!!!!!!!!!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Validação por assinatura digital não funcionando!!!!!!!!!!!">
       <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
     <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626816976120</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Validação por assinatura digital não funcionando!!!!!!!!!!!">
+      <created>1626818148600</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1626818148600</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +178,7 @@
     <MESSAGE value="Eu não sei o que tem de diferente, mas o pycharm mandou fazer commit" />
     <MESSAGE value="Alterações na função de encriptação" />
     <MESSAGE value="Validação por assinatura digital funcionando!!!!!!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validação por assinatura digital funcionando!!!!!!!!!!!" />
+    <MESSAGE value="Validação por assinatura digital não funcionando!!!!!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validação por assinatura digital não funcionando!!!!!!!!!!!" />
   </component>
 </project>
