@@ -27,16 +27,19 @@ class Servidor(object):
         id = str(id).replace("-", "")
         id = str(id).replace(".", "")
         idCorrida = str(id).replace(" ", "")
+
         for motorista in self.Motorista:
-            if motorista[idUser] == idUser:
-                publicKey = motorista[publicKey]
-            try:
+            if motorista[0] == idUser:
                 encoded = str(idUser)
-                pkcs1_15.new(publicKey).verify(encoded.encode(), signature)
-                self.procuraPassageiro.append(idCorrida,idUser, origem, destino, data, signature)
-            except (ValueError, TypeError):
-                print("The signature is not valid.")
-        return idCorrida
+                h = SHA256.new(encoded.encode())
+                publicKey = motorista[3]
+                try:
+                    pkcs1_15.new(publicKey).verify(h, signature)
+                    self.procuraPassageiro.append(idCorrida,idUser, origem, destino, data, signature)
+                    return idCorrida
+                except (ValueError, TypeError):
+                    print("A assinatura é inválida :(")
+
     # Clientes devem informar a origem, destino e a data da viagem desejada. (0,3)
     def consultaMotorista(self, origem, destino, data):
         for viagens in self.procuraPassageiro:

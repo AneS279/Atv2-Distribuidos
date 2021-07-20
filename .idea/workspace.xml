@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Alterações na função de encriptação">
+    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Validação por assinatura digital funcionando!!!!!!!!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
     <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
@@ -34,7 +33,6 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
@@ -50,7 +48,7 @@
       <recent name="C:\Users\aneca\OneDrive\Área de Trabalho\UTFPR\Distribuidos\Atividade 1 - Aplicativo de Carona" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Server">
+  <component name="RunManager" selected="Python.Motorista">
     <configuration name="Motorista" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -140,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626744908205</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Validação por assinatura digital funcionando!!!!!!!!!!!">
+      <created>1626812587081</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626812587081</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,6 +164,7 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="Eu não sei o que tem de diferente, mas o pycharm mandou fazer commit" />
     <MESSAGE value="Alterações na função de encriptação" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alterações na função de encriptação" />
+    <MESSAGE value="Validação por assinatura digital funcionando!!!!!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Validação por assinatura digital funcionando!!!!!!!!!!!" />
   </component>
 </project>
