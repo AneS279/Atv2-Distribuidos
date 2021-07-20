@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Eu não sei o que tem de diferente, mas o pycharm mandou fazer commit">
+    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Alterações na função de encriptação">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
-    <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="">
-      <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
-    </list>
+    <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,25 +24,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Cliente Motorista.py">
-      <ranges>
-        <range start1="16" end1="16" start2="16" end2="17" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="17" end1="17" start2="18" end2="19" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="19" end1="20" start2="21" end2="22" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="29" end1="30" start2="31" end2="33" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="38" end1="42" start2="41" end2="46" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="54" end1="56" start2="58" end2="60" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/Server.py">
-      <ranges>
-        <range start1="15" end1="17" start2="15" end2="17" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="40" end1="40" start2="40" end2="41" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="41" end1="43" start2="42" end2="44" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
-      </ranges>
-    </file>
   </component>
   <component name="ProjectId" id="1vHHou6Cxu9LkvjXq2j4iKnNCg8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -72,7 +50,7 @@
       <recent name="C:\Users\aneca\OneDrive\Área de Trabalho\UTFPR\Distribuidos\Atividade 1 - Aplicativo de Carona" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Motorista">
+  <component name="RunManager" selected="Python.Server">
     <configuration name="Motorista" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -155,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1626739865354</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Alterações na função de encriptação">
+      <created>1626744908205</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626744908205</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +158,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="Eu não sei o que tem de diferente, mas o pycharm mandou fazer commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eu não sei o que tem de diferente, mas o pycharm mandou fazer commit" />
+    <MESSAGE value="Alterações na função de encriptação" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alterações na função de encriptação" />
   </component>
 </project>

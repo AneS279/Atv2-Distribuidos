@@ -1,7 +1,12 @@
 from __future__ import print_function
 import Pyro4
 from datetime import datetime
-
+import Crypto
+from Crypto.Hash import SHA256
+from Crypto.PublicKey import RSA
+from Crypto import Random
+from Crypto.Cipher import PKCS1_OAEP
+from Crypto.Signature import pkcs1_15
 
 @Pyro4.expose
 @Pyro4.behavior(instance_mode="single")
@@ -16,33 +21,40 @@ class Servidor(object):
         def amostraALista(self):
             return self.Motorista
 #########################################
-
+    def interesseMotorista(self, idUser, origem, destino, data, signature):
+        id = datetime.now()
+        id = str(id).replace(":", "")
+        id = str(id).replace("-", "")
+        id = str(id).replace(".", "")
+        idCorrida = str(id).replace(" ", "")
+        for motorista in self.Motorista:
+            if motorista[idUser] == idUser:
+                publicKey = motorista[publicKey]
+            try:
+                encoded = str(idUser)
+                pkcs1_15.new(publicKey).verify(encoded.encode(), signature)
+                self.procuraPassageiro.append(idCorrida,idUser, origem, destino, data, signature)
+            except (ValueError, TypeError):
+                print("The signature is not valid.")
+        return idCorrida
     # Clientes devem informar a origem, destino e a data da viagem desejada. (0,3)
-    def consultaMotorista(self, origem, destino, data, interesse):
-        if interesse != '0':
-            id = datetime.now()
-            id = str(id).replace(":", "")
-            id = str(id).replace("-", "")
-            id = str(id).replace(".", "")
-            id = str(id).replace(" ", "")
-        else:
-            id = 0
-        self.procuraMotorista.append([id, origem, destino, data])
+    def consultaMotorista(self, origem, destino, data):
         for viagens in self.procuraPassageiro:
-            if viagens[data] == data:
-                print("Hey, aqui estou")
-        return id
-
-    def consultaPassegeiro(self, origem, destino, data):
+            if viagens[data] == data and viagens[origem] == origem and viagens[destino] == destino:
+                return "Encontrei a viagem " + viagens
+        return 0
+    def consultaPassageiro(self, origem, destino, data):
         self.procuraPassageiro.append(origem, destino, data)
         for viagens in self.procuraMotorista:
             if viagens[data] == data:
                 print("Hey, aqui estou")
 
     # Clientes devem informar seu nome, telefone e chave pública. (0,2)
-    def cadastroUsuario(self, nome, telefone, publicKey, idUser):
-        if (idUser == 1):
-            self.Motorista.append([nome, telefone, publicKey])
+    def cadastroUsuario(self, nome, telefone, publicKey, tpUser):
+        if (tpUser == 1):
+            idUser = (len(self.Motorista) + 1)
+            self.Motorista.append([idUser,nome, telefone, publicKey])
+            return idUser
         else:
             self.Passageiro.append([nome, telefone, publicKey])
 
