@@ -18,10 +18,30 @@ class Servidor(object):
         self.procuraPassageiro = []
         self.procuraMotorista = []
 #########################################
-        def amostraALista(self):
+        def mostraALista(self):
             return self.Motorista
 #########################################
-    def interesseMotorista(self, idUser, origem, destino, data, signature):
+    def consulta(self, origem, destino, data, tpUser):
+        if tpUser == 1:
+            listaDeViagens = self.procuraPassageiro
+        else:
+            listaDeViagens = self.procuraMotorista
+        for viagens in listaDeViagens:
+            if viagens[data] == data and viagens[origem] == origem and viagens[destino] == destino:
+                return "Encontrei! " + viagens
+        return 0
+
+    # Clientes devem informar a origem, destino e a data da viagem desejada. (0,3)
+    def cadastroUsuario(self, nome, telefone, publicKey, tpUser):
+        if (tpUser == 1):
+            idUser = (len(self.Motorista) + 1)
+            self.Motorista.append([idUser, nome, telefone, publicKey])
+            return idUser
+        else:
+            self.Passageiro.append([nome, telefone, publicKey])
+
+    # Clientes devem informar seu nome, telefone e chave pública. (0,2)
+    def interesseEmCarona(self, idUser, origem, destino, data, signature):
         id = datetime.now()
         id = str(id).replace(":", "")
         id = str(id).replace("-", "")
@@ -32,34 +52,14 @@ class Servidor(object):
             if motorista[0] == idUser:
                 encoded = str(idUser)
                 h = SHA256.new(encoded.encode())
-                publicKey = motorista[3]
+                public_key = RSA.import_key(open('publicMotorista.pem').read())
                 try:
-                    pkcs1_15.new(publicKey).verify(h, '')
-                    self.procuraPassageiro.append(idCorrida,idUser, origem, destino, data, signature)
+                    pkcs1_15.new(public_key).verify(h, signature)
+                    self.procuraPassageiro.append(idCorrida, idUser, origem, destino, data, signature)
                     return idCorrida
                 except (ValueError, TypeError):
                     print("A assinatura é inválida :(")
-
-    # Clientes devem informar a origem, destino e a data da viagem desejada. (0,3)
-    def consultaMotorista(self, origem, destino, data):
-        for viagens in self.procuraPassageiro:
-            if viagens[data] == data and viagens[origem] == origem and viagens[destino] == destino:
-                return "Encontrei a viagem " + viagens
-        return 0
-    def consultaPassageiro(self, origem, destino, data):
-        self.procuraPassageiro.append(origem, destino, data)
-        for viagens in self.procuraMotorista:
-            if viagens[data] == data:
-                print("Hey, aqui estou")
-
-    # Clientes devem informar seu nome, telefone e chave pública. (0,2)
-    def cadastroUsuario(self, nome, telefone, publicKey, tpUser):
-        if (tpUser == 1):
-            idUser = (len(self.Motorista) + 1)
-            self.Motorista.append([idUser,nome, telefone, publicKey])
-            return idUser
-        else:
-            self.Passageiro.append([nome, telefone, publicKey])
+                    return "SOCORRO SENHOR JESUS"
 
 def main():
     Pyro4.Daemon.serveSimple(

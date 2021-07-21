@@ -18,12 +18,12 @@ servidor = Pyro4.Proxy("PYRONAME:servidor.carona")
 
 key = RSA.generate(2048)
 privatekey = key.export_key()
-file_out = open("private.pem", "wb")
+file_out = open("privateMotorista.pem", "wb")
 file_out.write(privatekey)
 file_out.close()
 
 publickey = key.publickey().export_key()
-file_out = open("receiver.pem", "wb")
+file_out = open("publicMotorista.pem", "wb")
 file_out.write(publickey)
 file_out.close()
 
@@ -35,7 +35,7 @@ def consulta(idUser):
     origem = input("Aonde está? ").strip().encode()
     data = input("Quando deseja ir? ").strip().encode()
     if origem and destino and data:
-        respConsulta = servidor.consultaMotorista(origem, destino, data)
+        respConsulta = servidor.consulta(origem, destino, data, 1)
         if(not(respConsulta)):
             adicionarALista = input(
                 "Não encontrei nada dese|ja adicionar a sua lista de interesse? 1 - SIM/ 0 - NÃO\n").strip()
@@ -46,7 +46,13 @@ def interesse(data, origem, idUser, destino):
     encoded = str(idUser)
     h = SHA256.new(encoded.encode())
     signature = pkcs1_15.new(key).sign(h)
-    id = servidor.interesseMotorista(idUser, origem, destino, data, signature)
+    public_key = RSA.import_key(open('publicMotorista.pem').read())
+    try:
+        pkcs1_15.new(public_key).verify(h, signature)
+        print("The signature is valid.")
+    except (ValueError, TypeError):
+        print ("The signature is not valid.")
+    id = servidor.interesseEmCarona(idUser, origem, destino, data, signature)
     print(id)
 
 def cadastro ():
