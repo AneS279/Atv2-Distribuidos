@@ -10,8 +10,8 @@ from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 from Crypto import Random
 from Crypto.Cipher import PKCS1_OAEP
-from Crypto.Signature import pkcs1_15
-
+from Crypto.Signature import pss
+import binascii
 sys.excepthook = Pyro4.util.excepthook
 
 servidor = Pyro4.Proxy("PYRONAME:servidor.carona")
@@ -44,17 +44,15 @@ def consulta(idUser):
     # Registro de interesse em eventos (1,1)
 def interesse(data, origem, idUser, destino):
     encoded = str(idUser)
-    h = SHA256.new(encoded.encode())
-    signature = pkcs1_15.new(key).sign(h)
-    public_key = RSA.import_key(open('publicMotorista.pem').read())
-    try:
-        pkcs1_15.new(public_key).verify(h, signature)
-        print("The signature is valid.")
-    except (ValueError, TypeError):
-        print ("The signature is not valid.")
+    idUserEncoded = SHA256.new(encoded.encode('utf-8'))
+    print(idUserEncoded)
+    private = RSA.import_key(open('privateMotorista.pem').read())
+    signature = pss.new(private).sign(idUserEncoded)
+    sig_results = open("signature.txt", "wb")
+    sig_results.write(signature)
+    sig_results.close()
+    print(binascii.hexlify(signature))
     id = servidor.interesseEmCarona(idUser, origem, destino, data, signature)
-    print(id)
-
 def cadastro ():
     print("Novo por aqui? Cadastre-se\n")
     nome = input("Qual seu nome? ").strip().encode()
@@ -66,7 +64,17 @@ def cadastro ():
         idUser = servidor.cadastroUsuario(nome, telefone, publickey, 1) #O ultimo campo - se 1 motorista, se 0 passageiro
         print(idUser)
     return idUser
-
+def removeInteresse(idUser):
+    print(idUser)
+    viagensMarcadas = servidor.viagensRelacionadasAoMotorista(idUser)
+    if(not(viagensMarcadas)):
+        print("Não encontrei nenhuma viagem agendada para você.")
+    else:
+        print("Encontrei essas viagens para você, digite o número correspondente a que deseja cancelar")
+        for i in range (0, viagensMarcadas):
+            print(i, " - ", viagensMarcadas[i])
+        remover = input("Digite o número da viagem que deseja remover").strip()
+        servidor.cancelarInteresseEmViagem(idUser, viagensMarcadas[remover][0])
 #TODO
 
 #Cancelamento de um registro de interesse (0,4)
@@ -85,8 +93,10 @@ def main():
         if escolha != '0':
             if escolha == '1':
                 idUser = cadastro()
-            else:
+            elif escolha == '2':
                 consulta(idUser)
+            else:
+                removeInteresse(idUser)
     print("Até a próxima!")
 
 
