@@ -15,7 +15,9 @@ import binascii
 import asyncio
 sys.excepthook = Pyro4.util.excepthook
 
-servidor = Pyro4.Proxy("PYRONAME:servidor.carona")
+nameserver = Pyro4.locateNS()
+uri = nameserver.lookup("servidor.carona")
+servidor = Pyro4.Proxy(uri)
 
 key = RSA.generate(2048)
 privatekey = key.export_key()
@@ -36,19 +38,25 @@ def consulta(idUser):
     origem = input("Aonde está? ").strip()
     data = input("Quando deseja ir? ").strip()
     if origem and destino and data:
-        respConsulta = servidor.consulta(origem, destino, data, 1)
+        respConsulta = servidor.consultaViagens(origem, destino, data, 1)
         idCorrida = interesse(data, origem, idUser, destino)
-        if (not (respConsulta)):
+        if (len(respConsulta) == 0):
             adicionarALista = input(
                 "Não encontrei nada deseja adicionar a sua lista de interesse? 1 - SIM/ 0 - NÃO\n").strip()
             if adicionarALista == '0':
                 print('Tudo bem! Nos vemos na próxima\n')
                 servidor.cancelarInteresseEmPassageiro(idCorrida)
-            #else:
+            else:
+                print("Ok! Esse é seu ID: ", idCorrida)
+                #servidor.notificaMotorista(origem, destino, data)
             #    asyncio.run(notificaMotorista(idUser, data, origem, destino))
         else:
             servidor.cancelarInteresseEmPassageiro(idCorrida)
-            print(respConsulta)
+            print("Encontrei ", len(respConsulta), "\n")
+            for i in respConsulta:
+                print("Nome: ", i[1], "\n",
+                      "Telefone: ", i[2],
+                      "\n __________________________ \n")
     # Registro de interesse em eventos (1,1)
 def interesse(data, origem, idUser, destino):
     print(data)
@@ -57,14 +65,11 @@ def interesse(data, origem, idUser, destino):
     private = RSA.import_key(open('privateMotorista.pem').read())
     signature = pss.new(private).sign(idUserEncoded)
     id = servidor.interesseEmPassageiro(idUser, origem, destino, data, signature)
-    print(id)
+    return id
 def cadastro ():
     print("Novo por aqui? Cadastre-se\n")
-    nome = input("Qual seu nome? ").strip().encode()
-    telefone = input("Certo! \n Qual seu telefone?").strip().encode()
-    encryptor = PKCS1_OAEP.new(key)
-    nome = encryptor.encrypt(nome)
-    telefone = encryptor.encrypt(telefone)
+    nome = input("Qual seu nome? ").strip()
+    telefone = input("Certo! \n Qual seu telefone?").strip()
     if nome and telefone:
         idUser = servidor.cadastroUsuario(nome, telefone, publickey, 1) #O ultimo campo - se 1 motorista, se 0 passageiro
     return idUser
@@ -73,7 +78,8 @@ def removeInteresse(idUser):
     servidor.cancelarInteresseEmPassageiro(remover)
     print("Feito! Nos vemos na próxima!\n")
 
-async def notificaMotorista(idUser, data, origem, destino):
+@Pyro4.expose
+def notificaMotorista(idUser, data, origem, destino):
     servidor._pyroAsync()
     asyncresult = servidor.consulta(origem, destino, data, 1)
     while True:
@@ -93,11 +99,11 @@ def main():
                         "2 - Buscar viagem \n"
                         "0 - Sair\n").strip()
         if escolha != '0':
-            if escolha == '1' and idUser != '':
+            if escolha == '1' and idUser == '':
                 idUser = cadastro()
             elif escolha == '2':
                 consulta(idUser)
-            else:
+            elif escolha == '3':
                 removeInteresse(idUser)
     print("Até a próxima!")
 

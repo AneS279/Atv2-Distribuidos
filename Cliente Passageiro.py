@@ -14,7 +14,9 @@ from Crypto.Signature import pss
 import binascii
 sys.excepthook = Pyro4.util.excepthook
 
-servidor = Pyro4.Proxy("PYRONAME:servidor.carona")
+nameserver = Pyro4.locateNS()
+uri = nameserver.lookup("servidor.carona")
+servidor = Pyro4.Proxy(uri)
 
 key = RSA.generate(2048)
 privatekey = key.export_key()
@@ -36,7 +38,7 @@ def consulta(idUser):
     data = input("Quando deseja ir? ").strip()
     qtdePessoas = input("Em quantas pessoas? ").strip()
     if origem and destino and data:
-        respConsulta = servidor.consulta(origem, destino, data, 1)
+        respConsulta = servidor.consultaViagens(origem, destino, data, 0)
         idCorrida = interesse(data, origem, idUser, destino, qtdePessoas)
         if(not(respConsulta)):
             adicionarALista = input(
@@ -57,11 +59,8 @@ def interesse(data, origem, idUser, destino, qtdePessoas):
     return id
 def cadastro ():
     print("Novo por aqui? Cadastre-se\n")
-    nome = input("Qual seu nome? ").strip().encode()
-    telefone = input("Certo! \n Qual seu telefone?").strip().encode()
-    encryptor = PKCS1_OAEP.new(key)
-    nome = encryptor.encrypt(nome)
-    telefone = encryptor.encrypt(telefone)
+    nome = input("Qual seu nome? ").strip()
+    telefone = input("Certo! \n Qual seu telefone?").strip()
     if nome and telefone:
         idUser = servidor.cadastroUsuario(nome, telefone, publickey, 0) #O ultimo campo - se 1 motorista, se 0 passageiro
         print(idUser)
@@ -72,7 +71,6 @@ def removeInteresse(idUser):
     print("Feito! Nos vemos na próxima!\n")
 #TODO
 
-#Cancelamento de um registro de interesse (0,4)
 #Cada cliente tem um método para o recebimento de notificações de eventos do servidor (0,4)
 
 

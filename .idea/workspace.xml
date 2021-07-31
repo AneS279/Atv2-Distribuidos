@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Validação por assinatura digital não está funcionando, mas avançamos na remoção de interesse">
+    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Tentando fazer a notificação funcionar, só jesus na causa">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cliente Passageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Passageiro.py" afterDir="false" />
@@ -39,18 +39,18 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/Cliente Motorista.py">
       <ranges>
-        <range start1="14" end1="14" start2="14" end2="15" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="33" end1="36" start2="34" end2="37" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="38" end1="39" start2="39" end2="41" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="40" end1="43" start2="42" end2="51" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="45" end1="45" start2="53" end2="54" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="47" end1="48" start2="56" end2="56" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="50" end1="55" start2="58" end2="60" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="64" end1="65" start2="69" end2="69" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="67" end1="78" start2="71" end2="74" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="79" end1="82" start2="75" end2="84" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="88" end1="89" start2="90" end2="91" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
-        <range start1="90" end1="92" start2="92" end2="95" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
+        <range start1="17" end1="18" start2="17" end2="20" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="38" end1="39" start2="40" end2="41" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="40" end1="41" start2="42" end2="43" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="46" end1="47" start2="48" end2="51" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="50" end1="51" start2="54" end2="59" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="59" end1="60" start2="67" end2="68" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="62" end1="67" start2="70" end2="72" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="75" end1="76" start2="80" end2="82" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="90" end1="91" start2="96" end2="97" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
+        <range start1="92" end1="94" start2="98" end2="101" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
+        <range start1="95" end1="96" start2="102" end2="103" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
+        <range start1="99" end1="100" start2="106" end2="107" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
       </ranges>
     </file>
   </component>
@@ -79,7 +79,7 @@
       <recent name="C:\Users\aneca\OneDrive\Área de Trabalho\UTFPR\Distribuidos\Atividade 1 - Aplicativo de Carona" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Motorista">
+  <component name="RunManager" selected="Python.Carona">
     <configuration name="Carona" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627265641738</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Tentando fazer a notificação funcionar, só jesus na causa">
+      <created>1627349725665</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1627349725665</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +263,7 @@
     <MESSAGE value="Validação por assinatura digital não funcionando!!!!!!!!!!!" />
     <MESSAGE value="Validação por assinatura digital não está funcionando!!!!!!!!!!!" />
     <MESSAGE value="Validação por assinatura digital não está funcionando, mas avançamos na remoção de interesse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validação por assinatura digital não está funcionando, mas avançamos na remoção de interesse" />
+    <MESSAGE value="Tentando fazer a notificação funcionar, só jesus na causa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tentando fazer a notificação funcionar, só jesus na causa" />
   </component>
 </project>
