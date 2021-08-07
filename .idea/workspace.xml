@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Tentando fazer a notificação funcionar, só jesus na causa">
+    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Notificação ainda não, mas a consulta e o Daemon ta ok!!">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cliente Passageiro.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Passageiro.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliente Passageiro.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Visita.py" beforeDir="false" />
     </list>
-    <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="">
-      <change beforePath="$PROJECT_DIR$/Cliente Motorista.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cliente Motorista.py" afterDir="false" />
-    </list>
+    <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,24 +36,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/Cliente Motorista.py">
-      <ranges>
-        <range start1="17" end1="18" start2="17" end2="20" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="38" end1="39" start2="40" end2="41" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="40" end1="41" start2="42" end2="43" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="46" end1="47" start2="48" end2="51" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="50" end1="51" start2="54" end2="59" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="59" end1="60" start2="67" end2="68" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="62" end1="67" start2="70" end2="72" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="75" end1="76" start2="80" end2="82" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="90" end1="91" start2="96" end2="97" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
-        <range start1="92" end1="94" start2="98" end2="101" changelist="8fbc56b0-e9b0-4747-a720-01379271c166" />
-        <range start1="95" end1="96" start2="102" end2="103" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-        <range start1="99" end1="100" start2="106" end2="107" changelist="3f3bca45-dbb3-4235-848b-7c18421887ce" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProjectId" id="1vHHou6Cxu9LkvjXq2j4iKnNCg8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -64,8 +46,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="codeWithMe.voiceChat.enabledByDefault" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Cliente Passageiro.py" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -79,8 +61,8 @@
       <recent name="C:\Users\aneca\OneDrive\Área de Trabalho\UTFPR\Distribuidos\Atividade 1 - Aplicativo de Carona" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Carona">
-    <configuration name="Carona" type="PythonConfigurationType" factoryName="Python" singleton="false">
+  <component name="RunManager" selected="Python.Server Flask">
+    <configuration name="Server Flask" type="PythonConfigurationType" factoryName="Python" singleton="false">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -92,30 +74,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cliente Passageiro.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Motorista" type="PythonConfigurationType" factoryName="Python" singleton="false">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="Pyro4" value="C:\Program Files\Python\Lib\site-packages\Pyro4" />
-        <env name="Crypto" value="C:\Program Files\Python\Lib\site-packages\crypto" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Program Files\Python\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cliente Motorista.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Server Flask.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -128,6 +87,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
         <env name="Pyro4" value="C:\Program Files\Python\Lib\site-packages\Pyro4" />
       </envs>
       <option name="SDK_HOME" value="C:\Program Files\Python\python.exe" />
@@ -146,9 +106,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Carona" />
-      <item itemvalue="Python.Motorista" />
       <item itemvalue="Python.Server" />
+      <item itemvalue="Python.Server Flask" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -240,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627349725665</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Notificação ainda não, mas a consulta e o Daemon ta ok!!">
+      <created>1627750418833</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1627750418833</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -264,6 +230,7 @@
     <MESSAGE value="Validação por assinatura digital não está funcionando!!!!!!!!!!!" />
     <MESSAGE value="Validação por assinatura digital não está funcionando, mas avançamos na remoção de interesse" />
     <MESSAGE value="Tentando fazer a notificação funcionar, só jesus na causa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tentando fazer a notificação funcionar, só jesus na causa" />
+    <MESSAGE value="Notificação ainda não, mas a consulta e o Daemon ta ok!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Notificação ainda não, mas a consulta e o Daemon ta ok!!" />
   </component>
 </project>
