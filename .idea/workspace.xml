@@ -4,19 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Notificação ainda não, mas a consulta e o Daemon ta ok!!">
+    <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Funções principais funcionam, precisamos terminar o front e arrumar a notificação">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClienteMotorista/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClienteMotorista/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server Flask.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Flask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server.py" afterDir="false" />
     </list>
     <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,8 +107,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.Server Flask" />
       <item itemvalue="Python.Server" />
+      <item itemvalue="Python.Server Flask" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -212,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627750418833</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Funções principais funcionam, precisamos terminar o front e arrumar a notificação">
+      <created>1628371014143</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1628371014143</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -237,6 +239,7 @@
     <MESSAGE value="Validação por assinatura digital não está funcionando, mas avançamos na remoção de interesse" />
     <MESSAGE value="Tentando fazer a notificação funcionar, só jesus na causa" />
     <MESSAGE value="Notificação ainda não, mas a consulta e o Daemon ta ok!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Notificação ainda não, mas a consulta e o Daemon ta ok!!" />
+    <MESSAGE value="Funções principais funcionam, precisamos terminar o front e arrumar a notificação" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funções principais funcionam, precisamos terminar o front e arrumar a notificação" />
   </component>
 </project>

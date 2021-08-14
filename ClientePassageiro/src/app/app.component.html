@@ -1,9 +1,6 @@
 <header>
   <mat-toolbar>
     <span>Carona</span>
-    <button class="add-button" *ngIf="page != 1" (click)="MinhasViagens()" >
-      Minhas Viagens
-    </button>
     <button mat-button id="menuUser" [matMenuTriggerFor]="menu" *ngIf="page != 1">
       <mat-icon aria-hidden="false" aria-label="Example home icon">
         person
@@ -51,46 +48,32 @@
         <input matInput placeholder="" value="" id="Destino" #Destino required="required">
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-label for="qtdePassageiros">Quantidade de Passageiros</mat-label>
+        <input matInput placeholder="" value="" id="qtdePassageiros" #qtdePassageiros required="required">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Data</mat-label>
         <input matInput [matDatepicker]="picker" #Data id="Data">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+      <label>
+        <input name="registroInteresse"  #interesse id="interesse" type="checkbox">
+        Caso não encontre nenhuma viagem, deseja registrar interesse? 
+      </label>
+
+
     </form>
     <!-- (click) passes input value to add() and then clears the input -->
 
-    <button mat-raised-button color="primary" class="add-button" (click)="ConsultaViagens(Origem.value, Destino.value, Data.value)">
+    <button mat-raised-button color="primary" class="add-button" (click)="ConsultaViagens(Origem.value, Destino.value, Data.value, qtdePassageiros.value, interesse.checked)">
       Consultar Viagens
     </button>
   </div>
-  <div *ngIf="page != 1">
-    <form name="cadastro">
-      <mat-form-field appearance="fill">
-        <mat-label for="Origem">Origem</mat-label>
-        <input matInput placeholder="" value="" id="Origem" #Origem required="required">
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label for="Destino">Destino</mat-label>
-        <input matInput placeholder="" value="" id="Destino" #Destino required="required">
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Data</mat-label>
-        <input matInput [matDatepicker]="picker" #Data id="Data">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </form>
-    <!-- (click) passes input value to add() and then clears the input -->
-
-    <button mat-raised-button color="primary" class="add-button" (click)="InteresseEmPassageiro(Origem.value, Destino.value, Data.value)">
-      Registrar Interesse
-    </button>
-  </div>
-  <p *ngIf="listadeViagens == null">Não encontrei nenhuma viagem, deseja registrar interesse na data?</p>
   <mat-list role="list" *ngFor="let corrida of listadeViagens" >
-    Encontrei a(s) seguintes viagens relacionadas:
-    <mat-list-item role="listitem">Nome: {{corrida[0][1]}}  | ID: {{corrida[1][0]}}</mat-list-item>
-    
+    <mat-list-item role="listitem">Item 1</mat-list-item>
+    <mat-list-item role="listitem">Item 2</mat-list-item>
+    <mat-list-item role="listitem">Item 3</mat-list-item>
   </mat-list>
   <div>
     <mat-form-field appearance="fill">
@@ -102,15 +85,6 @@
     </button>
   </div>
 
-  <div *ngIf="page == 3">
-    <p *ngIf="viagensDoUsuario == null">Não encontrei nenhuma viagem</p>
-
-    <mat-list role="list" *ngFor="let usuario of viagensDoUsuario" >
-      Encontrei a(s) seguintes viagens relacionadas:
-      <mat-list-item role="listitem">Nome: {{usuario[0][1]}}  | ID: {{usuario[1][0]}}</mat-list-item>
-      
-    </mat-list>
-  </div>
   <!-- <div *ngIf="aviso">
     <ol>
       <li>
