@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import {Component, Inject} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,28 +18,43 @@ export class AppComponent {
   idCorrida: any; 
   listadeViagens:any = 0;
   eventSource:any;
+  interesseRegistrado:any = 0;
   page:any = 1;
   aviso:any;
   URL: any;
   countUser:any;
-  constructor(private httpClient: HttpClient, public dialog: MatDialog) {
+  passageiroInfo:any = [];
+  constructor(private httpClient: HttpClient, public dialog: MatDialog, private _snackBar: MatSnackBar) {
   }
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AppComponent, {
-      width: '250px',
-      data: {name: this.aviso}
-    });
+  openSnackBar(message:any, action:any) {
+    this._snackBar.open(message,action);
   }
   ngOnInit() {
     this.httpClient.get('http://127.0.0.1:5002/servidor/TamanhoLista/'+ '1').subscribe(data => {
       this.countUser = data as JSON;
       console.log(this.countUser);
-      this.eventSource = new EventSource("http://127.0.0.1:5002/stream?channel=" + String(this.countUser))
-      this.eventSource.addEventListener('publish',  function(e:any) {
-          console.log(e.data)
+      this.eventSource = new EventSource("http://127.0.0.1:5002/stream?channel=" + String(this.countUser) + '1')
+      this.eventSource.addEventListener('publish',  (passageiroInfo:any)=>{
+          console.log(passageiroInfo)
+          data = String(data).replace("/", "" )
+          this.passageiroInfo = String(passageiroInfo.data).replace("/", "" )
+          this.openSnackBar("Encontramos uma viagem compátivel com a sua, para ver, clique na notificação", "Ok")
       },  true)
     })
     
+   }
+   mostrarViagemCompativel(){
+     
+    if(this.page == 4){
+      this.page = 2;
+     }else{
+      this.page = 4;
+     }
+     var nome = this.passageiroInfo.substring(this.passageiroInfo.indexOf('\"'), this.passageiroInfo.indexOf('\",'))
+     var contato = this.passageiroInfo.substring(this.passageiroInfo.indexOf('\",'), this.passageiroInfo.indexOf('\"]'))
+     nome = String(nome).replace('\"', "" )
+     contato = String(contato).replace('\"', "" )
+     this.passageiroInfo = [nome, contato]
    }
   Cadastro(nome:any, telefone:any) {
 
@@ -54,7 +69,6 @@ export class AppComponent {
   }
 
   MinhasViagens() {
-    this.page = 3;
     this.httpClient.get('http://127.0.0.1:5002/servidor/consultaViagensDoUsuario/' + this.IdUser  + '/1').subscribe(data => {
       this.viagensDoUsuario = data as JSON;
       console.log(this.viagensDoUsuario);
@@ -78,26 +92,18 @@ export class AppComponent {
       this.httpClient.post('http://127.0.0.1:5002/servidor/interesseEmPassageiro/' + this.IdUser + '/' + origem + '/'+ destino + '/'+ data , "").subscribe(response => {
         this.idCorrida = response  as JSON;
         console.log(this.idCorrida);
-        this.NotificaMotorista(origem, destino, data)
+        this.MinhasViagens()
       })
     }else{
       console.log("SEM USUARIO")
     }
   }
 
-  NotificaMotorista(origem:any, destino:any, data:any){
-  
-    // this.eventSource = new EventSource("http://127.0.0.1:5002/listen/" + origem + '/'+ destino + '/'+ data)
-
-    // this.eventSource.addEventListener("message",  function(e:any) {
-    //   console.log(e.data)
-    // },  false)
-  }
-
   removeInteresseEmPassageiro(idCorrida:any) {
     this.httpClient.delete('http://127.0.0.1:5002/servidor/removeInteresseEmPassageiro/' + idCorrida).subscribe(data => {
       this.listadeViagens = data as JSON;
       console.log(this.listadeViagens)
+      this.MinhasViagens()
     })
   }
 }
