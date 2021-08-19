@@ -75,6 +75,7 @@ class ConsultaViagens(Servidor):
             listaDeViagens = Servidor.procuraPorCarona
         else:
             listaDeViagens = Servidor.procuraPorPassageiro
+        print(listaDeViagens)
         for viagens in listaDeViagens:
             if viagens[4] == data and viagens[2] == origem and viagens[3] == destino:
                 usuarioCompativel = self.consultaUsuario(viagens[1], tpUser)
@@ -97,6 +98,17 @@ class RemoveInteresseEmCarona(Servidor):
                 return Servidor.procuraPorCarona
 
 class InteresseEmPassageiro(Servidor):
+    def ChecaCorrespondenciacomPassageiro(self):
+        infosPassageiro = []
+        tamanhoLista = len(Servidor.procuraPorPassageiro)
+        for i in Servidor.procuraPorCarona:
+            if (Servidor.procuraPorPassageiro[tamanhoLista - 1][4] == i[4]
+                    and Servidor.procuraPorPassageiro[tamanhoLista - 1][3] == i[3]
+                    and Servidor.procuraPorPassageiro[tamanhoLista - 1][2] == i[2]):
+                for usuario in Servidor.Passageiro:
+                    if str(usuario[0]) == Servidor.procuraPorPassageiro[tamanhoLista - 1][1]:
+                        infosPassageiro.append([usuario[1], usuario[2]])
+                    server_side_event(infosPassageiro, i[1]+'0')
     def post(self, idUser, origem, destino, data):
         id = datetime.now()
         id = str(id).replace(":", "")
@@ -104,11 +116,23 @@ class InteresseEmPassageiro(Servidor):
         id = str(id).replace(".", "")
         idCorrida = str(id).replace(" ", "")
         Servidor.procuraPorPassageiro.append([idCorrida, idUser, origem, destino, data])
+        self.ChecaCorrespondenciacomPassageiro()
         # escutaMotorista(origem, destino, data)
         # server_side_event(Servidor.procuraPorPassageiro)
         return idCorrida
 
 class InteresseEmCarona(Servidor):
+    def ChecaCorrespondenciacomMotorista(self):
+        infosPassageiro =[]
+        tamanhoLista = len(Servidor.procuraPorCarona)
+        for i in Servidor.procuraPorPassageiro:
+            if(Servidor.procuraPorCarona[tamanhoLista-1][4] == i[4]
+            and Servidor.procuraPorCarona[tamanhoLista-1][3] == i[3]
+            and Servidor.procuraPorCarona[tamanhoLista-1][2] == i[2]):
+                for usuario in Servidor.Passageiro:
+                    if str(usuario[0]) == Servidor.procuraPorCarona[tamanhoLista-1][1]:
+                        infosPassageiro.append([usuario[1], usuario[2]])
+                    server_side_event(infosPassageiro, i[1] + '1')
     def post(self, idUser, origem, destino, data, qtdePassageiros):
         id = datetime.now()
         id = str(id).replace(":", "")
@@ -118,6 +142,7 @@ class InteresseEmCarona(Servidor):
         Servidor.procuraPorCarona.append([idCorrida, idUser, origem, destino, data, qtdePassageiros])
         print(Servidor.procuraPorCarona)
         # escutaMotorista(origem, destino, data)
+        self.ChecaCorrespondenciacomMotorista()
         return idCorrida
 
 class TamanhoLista(Servidor):
@@ -140,12 +165,11 @@ CORS(app)
 #     return Response(respond_to_client(), mimetype='text/event-stream')
 # @app.route("/listen/<origem>/<destino>/<data>")
 
-def server_side_eventMotorista(lista, id):
+def server_side_event(lista, id):
     """ Function to publish server side event """
     with app.app_context():
         sse.publish(lista, type='publish', channel=str(id))
         print(sse.redis)
-        print("FUNCIONA POR FAVOOOOOOOOOR")
 
 
 

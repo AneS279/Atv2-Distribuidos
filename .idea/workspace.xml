@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3f3bca45-dbb3-4235-848b-7c18421887ce" name="Default Changelist" comment="Funções principais funcionam, precisamos terminar o front e arrumar a notificação">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ClienteMotorista/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Server Flask.py" beforeDir="false" afterPath="$PROJECT_DIR$/Server Flask.py" afterDir="false" />
     </list>
     <list id="8fbc56b0-e9b0-4747-a720-01379271c166" name="Changes by vanessal" comment="" />
